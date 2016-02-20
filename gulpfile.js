@@ -45,7 +45,6 @@ gulp.task('haml', function () {
             "./lib/haml/render.rb",
         ]
     }))
-    })
     .pipe(gulp.dest('assets/views'));
 });
 
