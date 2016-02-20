@@ -38,10 +38,9 @@ gulp.task('scripts', function() {
 
 // Haml
 gulp.task('haml', function () {
-  return gulp.src('src/haml/*.haml')
+  return gulp.src('assets/src/haml/*.haml')
     .pipe(haml({
         require: [
-            "date",
             "./lib/haml/render.rb",
         ]
     }))
@@ -66,5 +65,5 @@ gulp.task('watch', function() {
   gulp.watch('assets/src/styles/*.scss', ['styles']);
   gulp.watch('assets/src/js/*.js', ['scripts']);
   gulp.watch('assets/src/images/*', ['images']);
-  gulp.watch('assets/src/haml/{**/,}*.haml', ['haml']);
+  gulp.watch('assets/src/haml/*.haml', ['haml']);
 });
