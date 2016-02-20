@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     del = require('del'),
-    include = require('gulp-include');
+    include = require('gulp-include'),
+    haml = require('gulp-ruby-haml');
 
 // Styles
 gulp.task('styles', function() {
@@ -35,6 +36,19 @@ gulp.task('scripts', function() {
     .pipe(notify({ message: 'Pliki JavaScript zostały zminifikowane i połączone.' }));
 });
 
+// Haml
+gulp.task('haml', function () {
+  return gulp.src('src/haml/*.haml')
+    .pipe(haml({
+        require: [
+            "date",
+            "./lib/haml/render.rb",
+        ]
+    }))
+    })
+    .pipe(gulp.dest('assets/views'));
+});
+
 // Images
 gulp.task('images', function() {
   return gulp.src('assets/src/images/*')
@@ -53,4 +67,5 @@ gulp.task('watch', function() {
   gulp.watch('assets/src/styles/*.scss', ['styles']);
   gulp.watch('assets/src/js/*.js', ['scripts']);
   gulp.watch('assets/src/images/*', ['images']);
+  gulp.watch('assets/src/haml/{**/,}*.haml', ['haml']);
 });
