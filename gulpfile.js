@@ -55,6 +55,11 @@ gulp.task('images', function() {
     .pipe(notify({ message: 'Obrazy zostały zoptymalizowane.' }));
 });
 
+// Build
+gulp.task('build', function() {
+  gulp.start('scripts', 'images', 'haml', 'styles');
+});
+
 // Default task
 gulp.task('default', function() {
   gulp.start('scripts', 'images');
