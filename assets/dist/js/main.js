@@ -1,3 +1,5 @@
+// core
+
 /*!
  * jQuery JavaScript Library v1.12.0
  * http://jquery.com/
@@ -28891,3 +28893,17 @@ if ( typeof define === 'function' && define.amd ) {
 }
 
 })( window );
+
+// components
+
+if ($('.menu').length > 0) {
+  $('.menu-toggle').on('click', function(){
+    if ($('.menu').is(':visible')) {
+      $('.menu-toggle').removeClass('active');
+      $('.menu').slideUp();
+    } else {
+      $('.menu-toggle').addClass('active');
+      $('.menu').slideDown();
+    }
+  });
+} 
