@@ -21,6 +21,7 @@
 //= require "components/upload.js"
 //= requure "components/tooltip.js"
 //= require "components/tabs.js"
+//= require "components/params.js"
 
 // components init
 
